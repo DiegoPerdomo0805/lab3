@@ -17,6 +17,12 @@ def model_bayes(spam_dict, ham_dict, p_spam, p_ham, vocab, test, val):
         else:
             p_spam_word[word] = 1 / (len(spam_dict) + len(vocab))
 
+    #print("------------------")
+    #for e in p_spam_word:
+    #    print(e, p_spam_word[e])
+    #print("------------------")
+
+
     # probabilidad de ham dado una palabra
     p_ham_word = {}
     for word in vocab:
@@ -25,6 +31,11 @@ def model_bayes(spam_dict, ham_dict, p_spam, p_ham, vocab, test, val):
             p_ham_word[word] = (ham_dict[word] + 1) / (len(ham_dict) + len(vocab))
         else:
             p_ham_word[word] = 1 / (len(ham_dict) + len(vocab))
+
+    #print("------------------")
+    #for e in p_ham_word:
+    #    print(e, p_ham_word[e])
+    #print("------------------")
 
     # probabilidad de spam o ham dado un mensaje
     for line in test:
