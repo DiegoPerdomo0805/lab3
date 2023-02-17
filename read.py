@@ -8,7 +8,7 @@ def clean(line):
     #trans = str.maketrans('','', '.,;:!?()[]{}<>')
     trans  = str.maketrans('','', string.punctuation)
     words = [word.translate(trans).upper() for word in line.split()]
-    print(words)
+    #print(words)
 
     return words
 
@@ -31,8 +31,7 @@ def read_file():
     val   = [re.sub(r'\d+', '', line) for line in train]
 
 
-    for line in lines:
-        print(line)
+    # for line in lines: print(line)
 
     spam_list = [[]]
     ham_list  = [[]]
@@ -61,12 +60,14 @@ def read_file():
 
     # tamaño de vocabulario
 
-    vocab = set()
+    #vocab = set()
+    vocab = []
 
     for line in train:
         for word in clean(line):
             if word not in vocab:
-                vocab.add(word)
+                #vocab.add(word)
+                vocab.append(word)
 
 
 
